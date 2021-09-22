@@ -1,10 +1,10 @@
 package com.Benk.demo.Controller;
 
-import com.Benk.demo.Entity.Bank;
-import com.Benk.demo.Entity.Client;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
+@RestController
+@RequestMapping(path = "api/bank")
 public class BankController {
-
-    
 
 }

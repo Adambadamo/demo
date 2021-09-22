@@ -3,19 +3,24 @@ package com.Benk.demo.Entity;
 import javax.persistence.*;
 import java.util.List;
 
+@Entity
 @Table(name = "banks")
 public class Bank {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private int bankID;
+    @SequenceGenerator(
+            name = "bankSeq",
+            sequenceName = "bankSeq"
+    )
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "bankSeq")
+    private Long id;
 
-    @Column(name = "name")
+    @Column(name = "bank_name")
     private String name;
 
-    @Column(name = "accounts")
-    private List<Account> accounts;
+    @OneToMany
+    @JoinColumn(name = "bank_id")
+    private List<Client> clientList;
 
     public Bank() {
 

@@ -1,37 +1,43 @@
 package com.Benk.demo.Entity;
 
+import java.util.List;
+
 import javax.persistence.*;
+
 
 @Entity
 @Table(name = "clients")
 public class Client {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @SequenceGenerator(
+            name = "clientSeq",
+            sequenceName = "clientSeq"
+    )
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "clientSeq")
     private Long id;
 
-    @OneToOne(mappedBy = "address")
-    private Account account;
-
-    @Column(name = "name")
+    @Column(name = "client_name")
     private String name;
 
-    @Column(name = "age")
+    @Transient
     private int age;
 
-    @Column(name = "phoneNumber")
-    private int phoneNumber;
+    @Column(name ="card_number")
+    private int cardNumber;
 
-    @Column(name = "email")
-    private String email;
+    @ManyToOne
+    @JoinColumn(name = "bank_id")
+    private Bank bank;
 
-    public Client(Long id, String name, String email, int age, int phoneNumber) {
+    @OneToMany
+    @JoinColumn(name = "client_id")
+    private List<Transaction> transactionList;
+
+    public Client(Long id, String name,int cardNumber) {
         this.id = id;
         this.name = name;
-        this.email = email;
-        this.age = age;
-        this.phoneNumber = phoneNumber;
+        this.cardNumber = cardNumber;
     }
 
     public Client() {
@@ -54,14 +60,6 @@ public class Client {
         this.name = name;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public int getAge() {
         return age;
     }
@@ -70,22 +68,12 @@ public class Client {
         this.age = age;
     }
 
-    public int getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(int phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
     @Override
     public String toString() {
         return "Client{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
                 ", age=" + age +
-                ", phoneNumber=" + phoneNumber +
                 '}';
     }
 

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "client")
+@RequestMapping(path = "api/client")
 public class ClientController {
 
     private final ClientService clientService;
@@ -25,6 +25,12 @@ public class ClientController {
 
     @PostMapping("/newClient")
     public void registerNewClient(@RequestBody Client client){
+        clientService.addNewClient(client);
+        System.out.println(client);
+    }
+
+    @PostMapping("/deleteClient")
+    public void deleteClient(@RequestBody Client client){
         clientService.addNewClient(client);
         System.out.println(client);
     }

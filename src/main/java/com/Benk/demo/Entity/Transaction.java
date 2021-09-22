@@ -7,12 +7,16 @@ import javax.persistence.*;
 public class Transaction {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private int id;
+    @SequenceGenerator(
+            name = "transactionSeq",
+            sequenceName = "transactionSeq",
+            initialValue = 1
+    )
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "transactionSeq")
+    private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "account_id")
-    private Account owner;
+    @JoinColumn(name = "client_id")
+    private Client client;
 
 }
