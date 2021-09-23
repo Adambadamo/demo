@@ -40,6 +40,11 @@ public class Client {
         this.cardNumber = cardNumber;
     }
 
+    public Client( String name,int cardNumber) {
+        this.name = name;
+        this.cardNumber = cardNumber;
+    }
+
     public Client() {
 
     }
