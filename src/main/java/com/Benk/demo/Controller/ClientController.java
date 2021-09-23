@@ -35,4 +35,11 @@ public class ClientController {
         clientService.deleteClient(clientId);
     }
 
+    @PutMapping(path = "{clientId}")
+    public void updateClient(@PathVariable("clientId")Long clientId,
+                             @RequestParam(required = false) String name,
+                             @RequestParam(required = false) int cardNumber){
+            clientService.updateClient(clientId,name,cardNumber);
+    }
+
 }

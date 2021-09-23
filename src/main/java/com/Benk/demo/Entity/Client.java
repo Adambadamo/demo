@@ -49,14 +49,6 @@ public class Client {
 
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public String getName() {
         return name;
     }
@@ -65,21 +57,16 @@ public class Client {
         this.name = name;
     }
 
-    public int getAge() {
-        return age;
-    }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setCardNumber(int cardNumber) {
+        this.cardNumber = cardNumber;
     }
 
     @Override
     public String toString() {
-        return "Client{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", age=" + age +
-                '}';
+        StringBuilder transactions = new StringBuilder((this.transactionList.size() == 0) ? " no transactions " : "");
+        for (Transaction transaction : transactionList) transactions.append(transaction.getToCardNumber()).append("\n\t");
+        return "\nClient\n Name : " + name + "\n" + transactions;
     }
 
 }

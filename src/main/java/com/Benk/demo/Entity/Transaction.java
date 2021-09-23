@@ -21,4 +21,7 @@ public class Transaction {
     @Column(name = "to_card")
     private int toCardNumber;
 
+    public int getToCardNumber() {
+        return toCardNumber;
+    }
 }
