@@ -30,4 +30,9 @@ public class ClientService {
         clientRepository.save(client);
     }
 
+    @PostMapping
+    public void deleteClient(Client client) {
+        clientRepository.delete(client);
+    }
+
 }

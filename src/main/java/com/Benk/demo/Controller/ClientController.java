@@ -31,7 +31,7 @@ public class ClientController {
 
     @PostMapping("/deleteClient")
     public void deleteClient(@RequestBody Client client){
-        clientService.addNewClient(client);
+        clientService.deleteClient(client);
         System.out.println(client);
     }
 
