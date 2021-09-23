@@ -31,8 +31,12 @@ public class ClientService {
     }
 
     @PostMapping
-    public void deleteClient(Client client) {
-        clientRepository.delete(client);
+    public void deleteClient(Long clientId) {
+        if(!clientRepository.existsById(clientId)){
+            throw new IllegalStateException(
+                    "Can't find any client with this : " + clientId + " id."
+            );
+        } clientRepository.deleteById(clientId);
     }
 
 }

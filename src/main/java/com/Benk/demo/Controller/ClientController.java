@@ -29,10 +29,10 @@ public class ClientController {
         System.out.println(client);
     }
 
-    @PostMapping("/deleteClient")
-    public void deleteClient(@RequestBody Client client){
-        clientService.deleteClient(client);
-        System.out.println(client);
+    @DeleteMapping(path = "{clientId}")
+    public void deleteClient(
+            @PathVariable("clientId") Long clientId){
+        clientService.deleteClient(clientId);
     }
 
 }

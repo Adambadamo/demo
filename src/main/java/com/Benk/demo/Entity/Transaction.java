@@ -9,8 +9,7 @@ public class Transaction {
     @Id
     @SequenceGenerator(
             name = "transactionSeq",
-            sequenceName = "transactionSeq",
-            initialValue = 1
+            sequenceName = "transactionSeq"
     )
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "transactionSeq")
     private Long id;
@@ -18,5 +17,8 @@ public class Transaction {
     @ManyToOne
     @JoinColumn(name = "client_id")
     private Client client;
+
+    @Column(name = "to_card")
+    private int toCardNumber;
 
 }
