@@ -1,5 +1,6 @@
 package com.Benk.demo.Entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
@@ -23,6 +24,9 @@ public class Client {
     @Transient
     private int age;
 
+    @Column(name ="idCard_number")
+    private String idCard;
+
     @Column(name ="card_number")
     private int cardNumber;
 
@@ -32,17 +36,11 @@ public class Client {
 
     @OneToMany
     @JoinColumn(name = "client_id")
-    private List<Transaction> transactionList;
+    private List<Transaction> transactionList = new ArrayList<>();
 
-    public Client(Long id, String name,int cardNumber) {
-        this.id = id;
+    public Client( String name,String idCard) {
         this.name = name;
-        this.cardNumber = cardNumber;
-    }
-
-    public Client( String name,int cardNumber) {
-        this.name = name;
-        this.cardNumber = cardNumber;
+        this.idCard = idCard;
     }
 
     public Client() {
@@ -53,10 +51,13 @@ public class Client {
         return name;
     }
 
+    public String getIdCard() {
+        return idCard;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
-
 
     public void setCardNumber(int cardNumber) {
         this.cardNumber = cardNumber;

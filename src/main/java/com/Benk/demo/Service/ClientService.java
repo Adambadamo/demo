@@ -27,8 +27,12 @@ public class ClientService {
     }
 
     @PostMapping
-    public void addNewClient(Client client) {
-        clientRepository.save(client);
+    public boolean addNewClient(Client client) {
+        if(!clientRepository.existsClientByNameAndIdCard(
+                client.getName(),client.getIdCard())){
+            clientRepository.save(client);
+            return true;
+        } return false;
     }
 
     @PostMapping

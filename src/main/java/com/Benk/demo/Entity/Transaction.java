@@ -14,12 +14,18 @@ public class Transaction {
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "transactionSeq")
     private Long id;
 
+    @Column(name = "amount")
+    private int amount;
+
     @ManyToOne
     @JoinColumn(name = "client_id")
     private Client client;
 
     @Column(name = "to_card")
     private int toCardNumber;
+
+    public Transaction(){}
+    public Transaction(int amount,int toCardNumber){}
 
     public int getToCardNumber() {
         return toCardNumber;

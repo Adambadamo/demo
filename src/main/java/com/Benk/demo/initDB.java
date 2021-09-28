@@ -30,16 +30,16 @@ public class initDB {
     CommandLineRunner loadClients(ClientRepository clientRepository) {
         return args -> {
             try {
-                log.info("New client: " + clientRepository.save(new Client("Sanyi",100)).getName());
-                log.info("New client: " + clientRepository.save(new Client("Mari",101)).getName());
-                log.info("New client: " + clientRepository.save(new Client("Andi",102)).getName());
-                log.info("New client: " + clientRepository.save(new Client("Kati",103)).getName());
-                log.info("New client: " + clientRepository.save(new Client("Ancsa",104)).getName());
-                log.info("New client: " + clientRepository.save(new Client("Márk",105)).getName());
-                log.info("New client: " + clientRepository.save(new Client("Geza",106)).getName());
-                log.info("New client: " + clientRepository.save(new Client("Bela",107)).getName());
-                log.info("New client: " + clientRepository.save(new Client("Pista",108)).getName());
-                log.info("New client: " + clientRepository.save(new Client("Laci",109)).getName());
+                log.info("New client: " + clientRepository.save(new Client("Sanyi","000AAA")).getName());
+                log.info("New client: " + clientRepository.save(new Client("Mari","000AAB")).getName());
+                log.info("New client: " + clientRepository.save(new Client("Andi","000AAC")).getName());
+                log.info("New client: " + clientRepository.save(new Client("Kati","000AAD")).getName());
+                log.info("New client: " + clientRepository.save(new Client("Ancsa","000AAE")).getName());
+                log.info("New client: " + clientRepository.save(new Client("Márk","000AAF")).getName());
+                log.info("New client: " + clientRepository.save(new Client("Geza","000AAG")).getName());
+                log.info("New client: " + clientRepository.save(new Client("Bela","000AAH")).getName());
+                log.info("New client: " + clientRepository.save(new Client("Pista","000AAI")).getName());
+                log.info("New client: " + clientRepository.save(new Client("Laci","000AAJ")).getName());
             }catch (Exception e){
                 log.error("Error?: "+e.getMessage());
             }

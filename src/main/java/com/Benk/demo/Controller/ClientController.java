@@ -3,6 +3,7 @@ package com.Benk.demo.Controller;
 import com.Benk.demo.Entity.Client;
 import com.Benk.demo.Service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,9 +25,11 @@ public class ClientController {
     }
 
     @PostMapping("/newClient")
-    public void registerNewClient(@RequestBody Client client){
-        clientService.addNewClient(client);
-        System.out.println(client);
+    public ResponseEntity<String> registerNewClient(@RequestBody Client client){
+        if(clientService.addNewClient(client)){
+            return ResponseEntity.ok("Client added");
+        } return ResponseEntity.ok("Client notadded");
+
     }
 
     @DeleteMapping(path = "{clientId}")
