@@ -1,6 +1,7 @@
 package com.Benk.demo.Entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -20,7 +21,7 @@ public class Bank {
 
     @OneToMany
     @JoinColumn(name = "bank_id")
-    private List<Client> clientList;
+    private List<Client> clientList = new ArrayList<>();
 
     public Bank() {
 

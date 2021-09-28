@@ -12,6 +12,7 @@ public interface ClientRepository extends
     //@Query("SELECT c FROM Client c WHERE c.name = ")
     Optional<Client> findClientByName(String name);
     boolean existsClientByNameAndIdCard(String name,String idCard);
+    boolean existsByCardNumber(int cardNumber);
 }
 
 

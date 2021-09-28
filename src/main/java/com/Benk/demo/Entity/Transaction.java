@@ -25,9 +25,19 @@ public class Transaction {
     private int toCardNumber;
 
     public Transaction(){}
-    public Transaction(int amount,int toCardNumber){}
+
+    public Transaction(Client client,int amount,int toCardNumber){
+        this.client = client;
+        this.amount = amount;
+        this.toCardNumber = toCardNumber;
+    }
 
     public int getToCardNumber() {
         return toCardNumber;
     }
+
+    public int getClientCardNumber(){
+        return this.client.getCardNumber();
+    }
+
 }

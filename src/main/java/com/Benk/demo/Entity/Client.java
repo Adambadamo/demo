@@ -63,6 +63,10 @@ public class Client {
         this.cardNumber = cardNumber;
     }
 
+    public int getCardNumber() {
+        return cardNumber;
+    }
+
     @Override
     public String toString() {
         StringBuilder transactions = new StringBuilder((this.transactionList.size() == 0) ? " no transactions " : "");
